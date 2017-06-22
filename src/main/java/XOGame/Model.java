@@ -18,8 +18,8 @@ public class Model {
     }
 
     public boolean checkDraw(char board[][]) {
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
+        for (int i = 0; i <= 2; i++) {
+            for (int j = 0; j <= 2; j++) {
                 if (board[i][j] == DefaultCharInit)
                     return false;
             }
@@ -31,36 +31,52 @@ public class Model {
         int TLDiagonal = 0;
         int BLDiagonal = 0;
 
-        for (int i = 0; i <2 ; i++) {
-            if (board[i][i]==symbol)
+        for (int i = 0; i <= 2; i++) {
+            if (board[i][i] == symbol)
                 TLDiagonal++;
         }
-        if (TLDiagonal==3){
+        if (TLDiagonal == 3) {
             return true;
         }
-        for (int i = 0; i <2 ; i++) {
-            if (board[i][2-i]==symbol)
+        for (int i = 0; i <= 2; i++) {
+            if (board[i][2 - i] == symbol)
                 BLDiagonal++;
-            }
-        if (BLDiagonal == 3){
-                return true;
         }
-        return false;
-        }
-    public boolean checkCols(char board[][],char symbol){
-        int sumCols = 0;
-        for (int i = 0; i <2 ; i++) {
-            for (int j = 0; j <2; j++) {
-                if (symbol==board[i][j])
-                    sumCols++;
-                if (sumCols==3){
-                    return true;
-                }
-            }
-        sumCols=0;
+        if (BLDiagonal == 3) {
+            return true;
         }
         return false;
     }
 
+    public boolean checkCols(char board[][], char symbol) {
+        int sumCols = 0;
+        for (int i = 0; i <= 2; i++) {
+            for (int j = 0; j <= 2; j++) {
+                if (symbol == board[i][j])
+                    sumCols++;
+                if (sumCols == 3) {
+                    return true;
+                }
+            }
+            sumCols = 0;
+        }
+        return false;
+    }
+
+    public boolean checkRows(char board[][], char symbol) {
+        int sumRows = 0;
+        for (int i = 0; i <= 2; i++) {
+            for (int j = 0; j <= 2; j++) {
+                if (symbol == board[j][i])
+                    sumRows++;
+                if (sumRows == 3) ;
+                {
+                    return true;
+                }
+            }
+            sumRows = 0;
+        }
+        return false;
+    }
 }
 
