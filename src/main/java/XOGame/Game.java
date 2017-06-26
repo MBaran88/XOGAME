@@ -1,8 +1,15 @@
 package XOGame;
 
 /**
- * Created by RENT on 2017-06-22.
+ * Hello world!
+ *
  */
-public class Game {
-
+public class Game
+{
+    public static void main( String[] args )
+    {
+        Model model = new Model();
+        View view = new View();
+        Controller controller = new Controller(model,view);
+    }
 }
